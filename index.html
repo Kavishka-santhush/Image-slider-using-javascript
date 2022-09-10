@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: red;
+        }
+
+        .container {
+            width: 500px;
+            position: absolute;
+            left: 27%;
+        }
+
+        .heading {
+            color: white;
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .body {
+            position: relative;
+        }
+
+        .arrow {
+            color: white;
+            position: absolute;
+            width: 500px;
+            border: white 2px solid;
+            width: 25px;
+            border-radius: 50px;
+            text-align: center;
+            top: 50px;
+            padding: 20px;
+            background-color: black;
+        }
+
+        .arrow:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .left {
+            left: 20%;
+        }
+
+        .right {
+            left: 80%
+        }
+
+        img {
+            background-size: contain, cover;
+            border: solid 5px gray;
+            height: 200px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="heading">Image slider using javascript</h1>
+    <div class="body">
+        <button class="arrow left" onclick="previose()">❮</button>
+        <div class="container">
+            <img id="img" src="Screenshot_1.png" />
+            <h2 id=" imgnum">Image number</h2>
+        </div>
+        <button class="arrow right" onclick="next()">❯</button>
+        <script>
+            images = ["Screenshot_1.png", "Screenshot_2.png", "Screenshot_3.png"];
+            img = document.getElementById("img");
+            i = 1;
+            imgnum = document.getElementById("imgnum");
+            imgnum.innerHTML = "image 01"
+            function next() {
+                if (i == 3) {
+                    i = 0;
+                }
+                img.src = images[i]
+                imgnum.innerHTML = "image " + (i + 1);
+                i++;
+
+            }
+            function previose() {
+                if (i == -2) {
+                    i = 1;
+                }
+                img.src = images[i + 1]
+                i--;
+            }
+        </script>
+</body>
+
+</html>
